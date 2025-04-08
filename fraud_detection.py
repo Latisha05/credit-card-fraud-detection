@@ -44,7 +44,6 @@ X_test_pred = autoencoder.predict(X_test)
 mse = np.mean(np.power(X_test - X_test_pred, 2), axis=1)
 threshold = np.percentile(mse, 95)
 y_pred = (mse > threshold).astype(int)
-
 y_true = y[X_test.index]
 print(confusion_matrix(y_true, y_pred))
 print(classification_report(y_true, y_pred))
